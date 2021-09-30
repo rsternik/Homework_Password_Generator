@@ -2,15 +2,16 @@
 
 The password generator will create a random password with the following criteria
 
-1. Password is atleast 8 up to a maximum of 128 characters
-2. At least one of following character sets is choosen
-    <ul>    
+1. Password is atleast 8 up to a maximum of 128 characters in length.
+2. At least one of following character sets is choosen.
+    <ul>   
         <li>Lower case</li>
         <li>Upper case</li>
         <li>Numbers</li>
         <li>Special characters</li>
+        <br>
     </ul>
- <p>Once the criteria is met the random password will output to the text window as shown in the example below.
+ <p>Once these two conditions are met the random password will output to the text window as shown in the example below.
  <br><br></p>
 
 
