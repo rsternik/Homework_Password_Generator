@@ -1,4 +1,4 @@
-// Assignment Code
+// var for Generate Button using query seletor
 var generateBtn = document.querySelector("#generate");
 
 // Character Set
@@ -12,22 +12,25 @@ var special = "!@#$%^&*()-+";
 function writePassword() {
 
 
-  // var defined query selectors
+  // var defined query selector
   var passwordText = document.querySelector("#password");
+
+
+  //  Password character length user input
+  var passwordLength = parseInt(prompt("Enter password length Min 8 - Max 128"));
+
+  // local writePassword vars
   var charBase = null;
   var randomChar = "";
 
-  //  Password Character length User Input
-  var passwordLength = parseInt(prompt("Enter password length Min 8 - Max 128"));
-
-  // Password length Condition and Codeblock
+  // Password length Condition and code block
   if (passwordLength >= 8 && passwordLength <= 128) {
     var lowerConf = confirm("Include lowercase characters?");
     var upperConf = confirm("Include uppercase characters?");
     var numberConf = confirm("Include numbers?");
     var specialConf = confirm("Include special characters?");
 
-    // charBase character set concatenation
+    // Character set coditions for character set concatenation
 
     if (lowerConf) {
       charBase += lowerCase;
@@ -45,7 +48,7 @@ function writePassword() {
       charBase += special;
     }
 
-    // Charcter set condition 
+    // charBase conditional
 
     if (charBase != null) {
 
@@ -56,15 +59,17 @@ function writePassword() {
       }
     }
     else {
-      // Undefined charSet error message 
+      // null charSet error message 
       passwordText.value = "You must select at least one character set. Click the Generate Password button to try again.";
     }
-  }else{
-      passwordText.value = "Your password legnth is out of bounds. Click the Generate Password button and select a number between 8 and 128"}
-   }
+    // Password length out of bounds error message
+  } else {
+    passwordText.value = "Your password length is out of bounds. Click the Generate Password button and select a number between 8 and 128"
+  }
+}
 
 
 
-// Add event listener to generate button
+// Event listener for Generate Password button click
 
 generateBtn.addEventListener("click", writePassword);
