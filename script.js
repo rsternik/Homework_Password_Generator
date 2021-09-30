@@ -1,51 +1,70 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
 // Character Set
-var upperCase = "ABCDEFG";
-var lowerCase = "abcdefg";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowerCase = upperCase.toLowerCase();
 var number = "0123456789";
 var special = "!@#$%^&*()-+";
-var charBase = "";
-var randomChar = "";
-
-
 
 
 // Write password to the #password input
 function writePassword() {
 
+
+  // var defined query selectors
   var passwordText = document.querySelector("#password");
-  
+  var charBase = null;
+  var randomChar = "";
 
-  //  User Input
-  var passwordLength = parseInt(prompt("How long to you want your password to be?"));
-  var lowerConf = confirm("Do you want lowercase characters?");
-  var upperConf = confirm("Do you want uppercase characters?");
-  var specialConf = confirm("Do you want any special characters?");
-  var numberConf = confirm("Do you want to include numbers?");
-  // Conditions
+  //  Password Character length User Input
+  var passwordLength = parseInt(prompt("Enter password length Min 8 - Max 128"));
 
-  if (lowerConf) {
-    charBase += lowerCase;
-  }
-  if (upperConf) {
-    charBase += upperCase;
-  }
-  if (numberConf) {
-    charBase += number;
-  }
-  if (specialConf) {
-    charBase += special;
-  }
+  // Password length Condition and Codeblock
+  if (passwordLength >= 8 && passwordLength <= 128) {
+    var lowerConf = confirm("Include lowercase characters?");
+    var upperConf = confirm("Include uppercase characters?");
+    var numberConf = confirm("Include numbers?");
+    var specialConf = confirm("Include special characters?");
 
-  // Loop
-  for (let i = 0; i < passwordLength; i++) {
+    // charBase character set concatenation
 
-    
-    randomChar += charBase.charAt(Math.floor(Math.random() * charBase.length));
-    passwordText.value = randomChar;
-  }
-}
+    if (lowerConf) {
+      charBase += lowerCase;
+    }
+
+    if (upperConf) {
+      charBase += upperCase;
+    }
+
+    if (numberConf) {
+      charBase += number;
+    }
+
+    if (specialConf) {
+      charBase += special;
+    }
+
+    // Charcter set condition 
+
+    if (charBase != null) {
+
+      // Password Generation Loop
+      for (let i = 0; i < passwordLength; i++) {
+        randomChar += charBase.charAt(Math.floor(Math.random() * charBase.length));
+        passwordText.value = randomChar;
+      }
+    }
+    else {
+      // Undefined charSet error message 
+      passwordText.value = "You must select at least one character set. Click the Generate Password button to try again.";
+    }
+  }else{
+      passwordText.value = "Your password legnth is out of bounds. Click the Generate Password button and select a number between 8 and 128"}
+   }
+
+
+
 // Add event listener to generate button
 
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", writePassword);
