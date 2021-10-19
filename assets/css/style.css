@@ -1,3 +1,16 @@
+/* Oxanium Font Import */
+
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&family=Oxanium:wght@400;700&display=swap");
+body {
+    --ox: "Oxanium";
+    --samgrad: rgb(6, 4, 121) linear-gradient(90deg, rgb(9, 11, 102) 0%, rgb(99, 100, 180) 50%, rgb(80, 127, 180) 100%);
+    font-family: var(--ox);
+    font-size: 16px;
+    line-height: 1;
+   background-color: ;
+}
+
+
 *,
 *::before,
 *::after {
@@ -12,10 +25,7 @@ body,
   padding: 0;
 }
 
-body {
-  font-family: sans-serif;
-  background-color: #f9fbfd;
-}
+
 
 .wrapper {
   padding-top: 30px;
@@ -40,6 +50,7 @@ header {
   margin: 0 auto;
   max-width: 800px;
   padding: 30px 40px;
+  font-family: var(--ox);
 }
 
 .card-header::after {
@@ -52,6 +63,7 @@ header {
 
 .card-body {
   min-height: 100px;
+  font-family: var(--ox);
 }
 
 .card-footer {
@@ -64,6 +76,7 @@ header {
   width: 100%;
   background: #e7e9eb;
   height: 2px;
+  font-family: var(--ox);
 }
 
 .card-footer::after {
@@ -86,6 +99,7 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  font-family: var(--ox);
 }
 
 button[disabled] {
@@ -116,6 +130,7 @@ button[disabled] {
   border-radius: 6px;
   resize: none;
   overflow: hidden;
+  font-family: var(--ox);
 }
 
 @media (max-width: 690px) {
